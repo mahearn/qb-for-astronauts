@@ -1,0 +1,46 @@
+.product-cards__container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+}
+
+.product-card {
+  position: relative;
+  padding: 15px;
+  background-color: whitesmoke !important;
+}
+
+.signup__button {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  font-size: 1.25em;
+
+  button {
+    color: #fff;
+    border: none;
+    background-color: #0e8900;
+    padding: 0 16px;
+    font-size: 18px;
+    line-height: 32px;
+    cursor: pointer;
+  }
+}
+
+summary {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+.feature__item {
+  margin: 15px;
+}
