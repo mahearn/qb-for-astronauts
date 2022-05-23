@@ -4,6 +4,7 @@ const Footer = () => {
   return (
     <div className='footer__container'>
       <div className='footer__links'>
+        <a href='/'>Home</a>
         <a href='/'>About</a>
         <a href='/'>Privacy Policy</a>
         <a href='/'>Contact Us</a>

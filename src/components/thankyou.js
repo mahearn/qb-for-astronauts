@@ -1,5 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 
+import './styles/thankyou.scss';
+
 const Thankyou = () => {
   const [searchParams] = useSearchParams();
   const params = [];
@@ -8,19 +10,23 @@ const Thankyou = () => {
     params.push(entry);
   }
 
-  console.log(params);
-
   return (
     <div>
-      <h2>Thanks for your purchase</h2>
+      <h1>Thanks for your purchase</h1>
       <section>
-        <h3>Your details</h3>
+        <h2>Your details:</h2>
         <ul className='thankyou__list'>
-          {params?.map((element) => (
-            <li className='thankyou__list-element'>
-              {element[0]}: {element[1]}
-            </li>
-          ))}
+          {params?.map((element) =>
+            element[0] !== 'id' ? (
+              <li key={element[0]} className='thankyou__list-element'>
+                <strong>{element[0].toUpperCase()}</strong>: {element[1]}
+              </li>
+            ) : (
+              <li key={element[0]} className='thankyou__list-element'>
+                <strong>Package {element[0]}</strong>: {element[1]}
+              </li>
+            )
+          )}
         </ul>
       </section>
     </div>
