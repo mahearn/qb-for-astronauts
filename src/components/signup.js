@@ -5,7 +5,6 @@ const Signup = () => {
     <div className='form__container'>
       <form className='mui-form'>
         <h2>Signup</h2>
-        <legend>Title</legend>
         <div class='mui-textfield'>
           <input type='text' placeholder='Your full name' />
         </div>

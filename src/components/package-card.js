@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import { getNumberOfFeatures } from './utils';
 
-const PackageCard = ({ product }) => {
+const PackageCard = ({ product, handleOpenModal }) => {
   let limit = 5;
   const [loadMoreSize, setLoadMoreSize] = useState(limit);
 
@@ -20,9 +19,15 @@ const PackageCard = ({ product }) => {
   return (
     <Card className='product-card'>
       <h2>{product.product_name}</h2>
-      <Link to={`signup?package=${product.id}`} className='signup__button'>
-        <button>BUY</button>
-      </Link>
+      <p>${(product.price / 100).toFixed(2)}</p>
+      <Button
+        onClick={() => handleOpenModal(product.id)}
+        sx={{ position: 'absolute', top: '25px', right: '15px' }}
+        variant='text'
+        color='primary'
+      >
+        BUY
+      </Button>
       <div>{product.description}</div>
       <hr />
       <details className='features__container'>

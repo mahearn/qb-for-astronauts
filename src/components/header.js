@@ -13,8 +13,8 @@ function scrollTo(y) {
 const Header = () => {
   return (
     <div className='header__hero'>
-      <CardMedia image={heroImage} sx={{ height: '100vh' }} />
-      <h1 className='header__title'>Quickbooks for Astronauts</h1>
+      <CardMedia image={heroImage} alt='' sx={{ height: '100vh' }} />
+      <h1 className='header__title'>Quickbooks Online for Astronauts</h1>
       <div className='header__downarrow'>
         <ArrowCircleDownIcon
           titleAccess='Scroll down'

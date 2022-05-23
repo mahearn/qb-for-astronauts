@@ -5,10 +5,11 @@ import './index.scss';
 
 function App() {
   const products = data.products;
+  const countries = data.countries;
 
   return (
     <div className='container'>
-      <ProductList products={products} />
+      <ProductList products={products} countries={countries} />
     </div>
   );
 }

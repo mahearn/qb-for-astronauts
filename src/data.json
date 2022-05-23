@@ -29,7 +29,7 @@
       "id": "0002",
       "product_name": "Lunar",
       "description": "Nullam fringilla ultricies libero quis cursus. Maecenas viverra erat metus, sit amet pretium felis iaculis sed. Integer pellentesque est in ex finibus rhoncus. Morbi et pellentesque neque, a egestas enim. Praesent in vestibulum justo, non mattis ante. Nunc pretium ut dui vehicula vehicula. Phasellus in ipsum massa. Sed a libero eu ipsum faucibus rhoncus. Quisque et eleifend neque.",
-      "price": 109900,
+      "price": 85000,
       "features": [
         "Sed a viverra nunc.",
         "Integer commodo malesuada congue.",
@@ -50,7 +50,7 @@
       "id": "0003",
       "product_name": "Martian",
       "description": "Nullam fringilla ultricies libero quis cursus. Maecenas viverra erat metus, sit amet pretium felis iaculis sed. Integer pellentesque est in ex finibus rhoncus. Morbi et pellentesque neque, a egestas enim. Praesent in vestibulum justo, non mattis ante. Nunc pretium ut dui vehicula vehicula. Phasellus in ipsum massa. Sed a libero eu ipsum faucibus rhoncus. Quisque et eleifend neque.",
-      "price": 109900,
+      "price": 55000,
       "features": [
         "Sed a viverra nunc.",
         "Integer commodo malesuada congue.",
@@ -61,6 +61,52 @@
         "Integer commodo malesuada congue.",
         "Vivamus iaculis rutrum urna eu pretium."
       ]
+    }
+  ],
+  "countries": [
+    {
+      "value": "",
+      "label": "Select a country"
+    },
+    {
+      "value": "Australia",
+      "label": "Australia"
+    },
+    {
+      "value": "China",
+      "label": "China"
+    },
+    {
+      "value": "Indonesia",
+      "label": "Indonesia"
+    },
+    {
+      "value": "Japan",
+      "label": "Japan"
+    },
+    {
+      "value": "Malaysia",
+      "label": "Malaysia"
+    },
+    {
+      "value": "New Zealand",
+      "label": "New Zealand"
+    },
+    {
+      "value": "Singapore",
+      "label": "Singapore"
+    },
+    {
+      "value": "South Korea",
+      "label": "South Korea"
+    },
+    {
+      "value": "Thailand",
+      "label": "Thailand"
+    },
+    {
+      "value": "Vietnam",
+      "label": "Vietnam"
     }
   ]
 }
