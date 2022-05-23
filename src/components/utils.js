@@ -3,35 +3,32 @@ export const getNumberOfFeatures = (product) => {
   return numberOfFeatures;
 };
 
-export const validateAll = (values) => {
+export const validateForm = (values) => {
   const { name, email, phone, country } = values;
   const validations = {
+    isValid: true,
     name: '',
     email: '',
-    phone: 0,
+    phone: '',
     country: '',
   };
-  let isValid = true;
 
   if (name.length === 0) {
     validations.name = 'Name is required';
-    isValid = false;
+    validations.isValid = false;
   }
-  if (email.length === 0) {
-    validations.email = 'Email is required';
-    isValid = false;
-  }
-  if (email && !email.match(/@./g)) {
+  if (email.length === 0 || !email.match(/@./g)) {
     validations.email = 'Email format must be like example@mail.com';
-    isValid = false;
+    validations.isValid = false;
   }
-  if (phone && !phone.match(/^\d{10}$/)) {
+  if (phone.length === 0 || !phone.match(/^\d{10}$/)) {
     validations.phone = 'Phone number must be 10 digits';
-    isValid = false;
+    validations.isValid = false;
   }
-  if (country === '') {
-    isValid = false;
+  if (country.length === 0) {
+    validations.country = 'Please select country';
+    validations.isValid = false;
   }
 
-  return isValid;
+  return validations;
 };

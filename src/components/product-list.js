@@ -5,18 +5,18 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import PackageCard from './package-card';
-// import { validateAll } from './utils';
+import { validateForm } from './utils';
 
 import './styles/product-list.scss';
 
 const ProductList = ({ products, countries }) => {
   const [showModal, setShowModal] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedCountry, setSelectedCountry] = useState({ value: '' });
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  // const [formValuesAsString, setFormValuesAsString] = useState('');
-  // const [queryStringParams, setQueryStringParams] = useState({});
+  const [formErrors, setFormErrors] = useState({});
+  const [formIsValid, setFormIsValid] = useState(true);
   const [selectedPackageId, setSelectedPackageId] = useState('');
   const navigate = useNavigate();
 
@@ -27,23 +27,29 @@ const ProductList = ({ products, countries }) => {
     setSelectedPackageId(id);
   };
 
-  const handleSubmit = () => {
-    // const isValid = validateAll(values);
-    // if (!isValid) {
-    //   return false;
-    // }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //route to thankyou page (mocking callback from external API)
+    const country = selectedCountry.value;
+    const validations = validateForm({ name, email, phone, country });
 
-    //now route to thankyou page (mocking callback from external API)
-    navigate({
-      pathname: 'thankyou',
-      search: createSearchParams({
-        id: selectedPackageId,
-        name: name,
-        email: email,
-        phone: phone,
-        country: selectedCountry.value,
-      }).toString(),
-    });
+    if (!validations.isValid) {
+      setFormIsValid(false);
+      setFormErrors(validations);
+    } else {
+      setFormIsValid(true);
+
+      navigate({
+        pathname: 'thankyou',
+        search: createSearchParams({
+          id: selectedPackageId,
+          name,
+          email,
+          phone,
+          country,
+        }).toString(),
+      });
+    }
   };
 
   const handleChangeValue = (e) => {
@@ -111,12 +117,12 @@ const ProductList = ({ products, countries }) => {
                 color: '#000',
                 position: 'absolute',
                 top: '15px',
-                right: '15px',
+                right: '0',
               }}
             >
               X
             </Button>
-            <form className='form'>
+            <form className='form' onSubmit={handleSubmit}>
               <h2>Sign up</h2>
               <div className='text-field'>
                 <input
@@ -127,6 +133,7 @@ const ProductList = ({ products, countries }) => {
                   placeholder='Full name'
                   onChange={handleChangeValue}
                 />
+                <div className='error-text'>{formErrors.name}</div>
               </div>
               <div className='text-field'>
                 <input
@@ -136,6 +143,7 @@ const ProductList = ({ products, countries }) => {
                   placeholder='Email address'
                   onChange={handleChangeValue}
                 />
+                <div className='error-text'>{formErrors.email}</div>
               </div>
               <div className='text-field'>
                 <input
@@ -146,27 +154,20 @@ const ProductList = ({ products, countries }) => {
                   placeholder='Phone number'
                   onChange={handleChangeValue}
                 />
+                <div className='error-text'>{formErrors.phone}</div>
               </div>
               <div className='select-field'>
                 <Select
                   name='country'
-                  // value={selectedCountry}
                   placeholder='Select a country'
                   className='country-select'
-                  // onChange={(value) => handleChangeCountry(value)}
                   onChange={handleChangeCountry}
                   options={countries}
                 />
+                <div className='error-text'>{formErrors.country}</div>
               </div>
               <div className='submit-button'>
-                <Button
-                  variant='outlined'
-                  size='large'
-                  fullWidth={true}
-                  onClick={handleSubmit}
-                >
-                  Submit
-                </Button>
+                <input type='submit' value='Submit' />
               </div>
             </form>
           </div>

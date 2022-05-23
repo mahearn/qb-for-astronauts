@@ -31,7 +31,6 @@ summary {
 }
 
 .form {
-  text-align: center;
   justify-content: center;
   flex-direction: column;
   display: flex;
@@ -42,9 +41,14 @@ summary {
   width: 100%;
   height: 32px;
   font-size: 1em;
-  margin-bottom: 20px;
   padding-bottom: 2px;
   padding-top: 2px;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .country-select {
@@ -53,6 +57,26 @@ summary {
 }
 
 .submit-button {
+  margin-top: 10px;
   text-align: center;
-  margin-top: 50px;
+  width: 100%;
+
+  input {
+    width: 100%;
+    transition: background 400ms;
+    color: #fff;
+    background-color: #4c8314;
+    padding: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    outline: 0;
+    border: 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+
+  input:hover {
+    background-color: #6ca84d;
+  }
 }
