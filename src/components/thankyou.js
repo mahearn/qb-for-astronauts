@@ -18,12 +18,15 @@ const Thankyou = () => {
         <ul className='thankyou__list'>
           {params?.map((element) =>
             element[0] !== 'id' ? (
-              <li key={element[0]} className='thankyou__list-element'>
-                <strong>{element[0].toUpperCase()}</strong>: {element[1]}
+              <li
+                key={element[0]}
+                className='thankyou__list-element capitalise'
+              >
+                <strong>{element[0]}</strong>: {element[1]}
               </li>
             ) : (
               <li key={element[0]} className='thankyou__list-element'>
-                <strong>Package {element[0]}</strong>: {element[1]}
+                <strong>Package #</strong>: {element[1]}
               </li>
             )
           )}

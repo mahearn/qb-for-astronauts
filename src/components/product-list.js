@@ -16,7 +16,6 @@ const ProductList = ({ products, countries }) => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [formErrors, setFormErrors] = useState({});
-  const [formIsValid, setFormIsValid] = useState(true);
   const [selectedPackageId, setSelectedPackageId] = useState('');
   const navigate = useNavigate();
 
@@ -34,11 +33,9 @@ const ProductList = ({ products, countries }) => {
     const validations = validateForm({ name, email, phone, country });
 
     if (!validations.isValid) {
-      setFormIsValid(false);
       setFormErrors(validations);
     } else {
-      setFormIsValid(true);
-
+      // route to the thankyou page, using searchparams object to pass form responses
       navigate({
         pathname: 'thankyou',
         search: createSearchParams({
@@ -128,6 +125,7 @@ const ProductList = ({ products, countries }) => {
                 <input
                   type='text'
                   name='name'
+                  className='text-field__input'
                   value={name}
                   filter='[^a-zA-Z ]'
                   placeholder='Full name'
@@ -139,6 +137,7 @@ const ProductList = ({ products, countries }) => {
                 <input
                   type='text'
                   name='email'
+                  className='text-field__input'
                   value={email}
                   placeholder='Email address'
                   onChange={handleChangeValue}
@@ -149,6 +148,7 @@ const ProductList = ({ products, countries }) => {
                 <input
                   type='text'
                   name='phone'
+                  className='text-field__input'
                   value={phone}
                   maxLength='10'
                   placeholder='Phone number'
@@ -167,7 +167,15 @@ const ProductList = ({ products, countries }) => {
                 <div className='error-text'>{formErrors.country}</div>
               </div>
               <div className='submit-button'>
-                <input type='submit' value='Submit' />
+                <Button
+                  type='submit'
+                  variant='outlined'
+                  size='large'
+                  fullWidth={true}
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </Button>
               </div>
             </form>
           </div>

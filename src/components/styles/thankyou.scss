@@ -8,3 +8,7 @@
     margin-bottom: 15px;
   }
 }
+
+.capitalise::first-letter {
+  text-transform: capitalize;
+}
