@@ -111,7 +111,7 @@ const ProductList = ({ products, countries }) => {
               onClick={handleCloseModal}
               sx={{
                 fontSize: '1em',
-                color: '#000',
+                color: '#1976d2;',
                 position: 'absolute',
                 top: '15px',
                 right: '0',
