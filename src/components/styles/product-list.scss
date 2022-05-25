@@ -16,9 +16,14 @@
 
 .product-card {
   position: relative;
+  align-self: center;
   width: 100%;
   padding: 15px;
   background-color: whitesmoke !important;
+
+  @media screen and (min-width: 768px) {
+    align-self: flex-start;
+  }
 }
 
 summary {
