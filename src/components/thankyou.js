@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import './styles/thankyou.scss';
 
@@ -12,7 +13,18 @@ const Thankyou = () => {
 
   return (
     <div>
-      <h1>Thanks for your purchase</h1>
+      <Helmet>
+        <title>Thanks for your order!</title>
+        <meta
+          name='description'
+          content='quickbooks online for astronauts. Browse and order product packages.'
+        />
+        <meta
+          name='keywords'
+          content='quickbooks astronauts accounting software'
+        />
+      </Helmet>
+      <h1>Thanks for your order!</h1>
       <section>
         <h2>Your details:</h2>
         <ul className='thankyou__list'>
